@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package docs.common.messages.v1.pagination;
+
+message Pagination {
+    int32 pages = 1;
+    int32 currentPage = 2;
+    int32 count = 3;
+    int32 per_page = 4;
+}

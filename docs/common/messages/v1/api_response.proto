@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package docs.common.messages.v1.api_response;
+
+message Response {
+    string message = 1;
+    int32 code = 2;
+    string sign_id = 3;
+}
