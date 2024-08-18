@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package docs.services.docs_service.common.v1.lockmode;
+
+enum Lockmode {
+        NONE = 0;
+        SEND = 1;
+        FULL = 2;
+}

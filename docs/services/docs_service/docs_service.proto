@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package docs.services.docs_service;
+import "docs/services/docs_service/messages/v1/arguments.proto";
+import "docs/services/docs_service/messages/v1/operators.proto";
+import "docs/services/docs_service/messages/v1/employees.proto";
+import "docs/common/messages/v1/api_response.proto";
+
+service DocsService {
+    rpc SendDocument (messages.v1.arguments.PostDocArgument) returns (docs.common.messages.v1.api_response.Response);
+
+    rpc UploadFile (messages.v1.arguments.PostUploadArgument) returns (docs.common.messages.v1.api_response.Response);
+
+    rpc UploadFilesStream (stream messages.v1.arguments.PostUploadArgument) returns (docs.common.messages.v1.api_response.Response);
+
+    rpc PublishDocument (messages.v1.arguments.PutDocArgument) returns (docs.common.messages.v1.api_response.Response);
+
+    rpc ReplaceDocument (messages.v1.arguments.PutReplaceDocArgument) returns (docs.common.messages.v1.api_response.Response);
+
+    rpc DeleteDocument (messages.v1.arguments.DeleteDocArgument) returns (docs.common.messages.v1.api_response.Response);
+
+    rpc CreatedDownloadJob (messages.v1.arguments.PostFormArgument) returns (docs.common.messages.v1.api_response.Response);
+
+    rpc GetOperatorsList (messages.v1.arguments.GetOperatorsArgument) returns (messages.v1.operators.Operators);
+
+    rpc GetForms (messages.v1.arguments.GetFormArgument) returns (docs.common.messages.v1.api_response.Response);
+
+    rpc SendEmployeesList (messages.v1.arguments.PostEmployeesV1) returns (docs.common.messages.v1.api_response.Response);
+
+    rpc GetEmployeesList (messages.v1.arguments.GetEmployeesV1) returns (messages.v1.employees.Users);
+}

@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package docs.services.docs_service.messages.v1.employees;
+
+message Users {
+  repeated User user = 1;
+}
+
+message User {
+  string users_id = 1;
+  string org_id = 2;
+  bool sign_documents = 3;
+  bool add_resolutions = 4;
+}

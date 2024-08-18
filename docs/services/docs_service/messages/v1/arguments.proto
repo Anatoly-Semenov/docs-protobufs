@@ -1,0 +1,139 @@
+syntax = "proto3";
+
+package docs.services.docs_service.messages.v1.arguments;
+import "google/protobuf/timestamp.proto";
+import "docs/services/docs_service/common/v1/lockmode.proto";
+
+message PostDocArgument {
+        string doc_id = 1;
+        string reg_number = 2;
+        google.protobuf.Timestamp reg_date = 3;
+        string name = 4;
+        string document_kind = 5;
+        optional Vgo vgo = 6;
+        double sum = 7;
+        optional int32 currencycode = 8;
+        optional double totalvat = 9;
+        bool is_template = 10;
+        optional bool is_internal = 11;
+        optional bool is_cancelled = 12;
+        bool is_roaming = 13;
+        optional docs.services.docs_service.common.v1.lockmode.Lockmode lock_mode = 14;
+        optional string comment = 15;
+        string link_contr_system = 16;
+        string org_id = 17;
+        repeated string counterparty_id = 18;
+        repeated string boxes_id = 19;
+        repeated string docs_id = 20;
+}
+
+enum Vgo {
+        NONE = 0;
+        ONE = 1;
+        TWO = 2;
+}
+
+
+message PostUploadArgument {
+        string doc_id = 1;
+        bytes file = 2;
+        string file_id = 3;
+        string name_files = 4;
+        bool need_recipient_signature = 5;
+        bool type_files = 6;
+        KindFiles kind_files = 7;
+        google.protobuf.Timestamp begindate = 8;
+        google.protobuf.Timestamp enddate = 9;
+}
+enum KindFiles {
+        NONFORMALIZED = 0;
+        INVOICE = 1;
+        CONTRACT = 2;
+        PERFORMED_WORK_ACCEPTANCE_CERTIFICATE = 3;
+        UNIVERSAL_TRANSFER_DOCUMENT = 4;
+        UNIVERSAL_TRANSFER_DOCUMENT_REVISION = 5;
+        UNIVERSAL_CORRECTION_DOCUMENT = 6;
+        UNIVERSAL_CORRECTION_DOCUMENT_REVISION = 7;
+        INVOICE_REVISION = 8;
+        INVOICE_CORRECTION = 9;
+        INVOICE_CORRECTION_REVISION = 10;
+        LETTER = 11;
+        SUPPLEMENTARY_AGREEMENT = 12;
+        ACCEPTANCE_CERTIFICATE = 13;
+        TRUST_CONNECTION_REQUEST = 14;
+        TORG_12 = 15;
+        PROFORMA_INVOICE = 16;
+        XML_TORG_12 = 17;
+        XML_ACCEPTANCE_CERTIFICATE = 18;
+        PRICE_LIST = 19;
+        PRICE_LIST_AGREEMENT = 20;
+        CERTIFICATE_REGISTRY = 21;
+        RECONCILIATION_ACT = 22;
+        TORG_13 = 23;
+        SERVICE_DETAILS = 24;
+        STORAGE_INVENTORY_ACCEPTANCE_CERTIFICATE = 25;
+        RETURN_INVENTORY_ACCEPTANCE_CERTIFICATE = 26;
+        LOGISTICS_WORK_ORDER = 27;
+        LOGISTICS_CONTAINER_CERTIFICATE = 28;
+        LOGISTICS_CHARTER_AGREEMENT = 29;
+        LOGISTICS_ORDER_REQUEST = 30;
+        TORG_2 = 31;
+        WAYBILL = 32;
+        POWER_OF_ATTORNEY = 33;
+        LOGISTICS_WAYBILL_RECEPTION = 34;
+        LOGISTICS_WAYBILL_DELIVERY = 35;
+        LOGISTICS_WAYBILL_FORWARDING = 36;
+        LOGISTICS_EPL = 37;
+        LOGISTICS_WAYBILL = 38;
+}
+
+message PutDocArgument {
+        string doc_id = 1;
+}
+message PutReplaceDocArgument {
+        string doc_id = 1;
+}
+enum Activity {
+        CREATE_DOWNLOAD_JOB = 0;
+
+}
+
+message DeleteDocArgument {
+        string doc_id = 1;
+}
+
+enum FileType {
+        PRINT_FORM = 0;
+        ARCHIVE = 1;
+}
+
+
+message GetFormArgument {
+        string source_id = 1;
+        FileType file_type = 2;
+}
+
+message PostFormArgument {
+        string doc_id = 1;
+        FileType file_type = 2;
+        optional string source_id = 3;
+}
+
+message GetOperatorsArgument {
+        string org_id = 1;
+        repeated string counterparties_id = 2;
+}
+
+message GetEmployeesV1 {
+        string org_id = 1;
+}
+
+message PostEmployeesV1 {
+        string doc_id = 1;
+        string hr_id = 2;
+        SignOperation operation  = 3;
+}
+enum SignOperation {
+        SIGN_DOCUMENTS = 0;
+        ADD_RESOLUTIONS = 1;
+}
