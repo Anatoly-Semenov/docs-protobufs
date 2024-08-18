@@ -1,0 +1,8 @@
+recursive-include docs *
+
+recursive-exclude * *.proto
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+recursive-exclude package *
+
+recursive-include Makefile

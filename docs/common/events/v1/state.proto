@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package docs.common.events.v1.state;
+
+message State {
+    int32 previous_state_id = 1;
+    int32 current_state_id = 2;
+}

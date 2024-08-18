@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package docs.common.messages.v1.prices;
+
+message Price {
+    double price = 1;
+    double nds = 2;
+    double subtotal = 3;
+}

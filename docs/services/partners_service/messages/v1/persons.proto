@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package docs.services.partners_service.messages.v1.persons;
+
+import "google/protobuf/timestamp.proto";
+
+import "docs/services/partners_service/common/v1/paging.proto";
+import "docs/services/partners_service/common/v1/aliases.proto";
+
+message Person {
+  string guid = 1;
+  string code = 2;
+  string fullName = 3;
+  string partner = 4;
+  string jobTitle = 5;
+  bool isCancel = 6;
+  google.protobuf.Timestamp modificationDate = 7;
+  google.protobuf.Timestamp modificationDateUTC = 8;
+}
+
+message PersonsResponse {
+  bool success = 1;
+  int32 code = 2;
+  docs.services.partners_service.common.v1.paging.Paging paging = 3;
+  repeated Person data = 4;
+  common.v1.aliases.AliasesCommon aliases = 5;
+}

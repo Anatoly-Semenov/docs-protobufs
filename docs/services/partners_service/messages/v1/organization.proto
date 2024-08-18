@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package docs.services.partners_service.messages.v1.organization;
+
+import "google/protobuf/timestamp.proto";
+
+import "docs/services/partners_service/common/v1/paging.proto";
+import "docs/services/partners_service/common/v1/aliases.proto";
+import "docs/services/partners_service/messages/v1/accounts.proto";
+
+message Organization {
+  string guid = 1;
+  string code = 2;
+  string name = 3;
+  string fullName = 4;
+  string charterName = 5;
+  string guidRegion = 6;
+  string type = 7;
+  string stateRegistration = 8;
+  string inn = 9;
+  string kpp = 10;
+  string okpp = 11;
+  string orgnip = 12;
+  string guidMainOrg = 13;
+  bool isSeparateDivision = 14;
+  string guidCounterparty = 15;
+  string guidMdmBusinessArea = 16;
+  repeated messages.v1.accounts.Account accounts = 17;
+  string legalAddressGAR = 18;
+  string legalAddress = 19;
+  string factAddress = 20;
+  string mailAddress = 21;
+  repeated string phones = 22;
+  repeated string mails = 23;
+  bool isCancel = 24;
+  google.protobuf.Timestamp modificationDate = 25;
+  google.protobuf.Timestamp modificationDateUTC = 26;
+}
+
+message OrganizationResponse {
+  bool success = 1;
+  int32 code = 2;
+  partners_service.common.v1.paging.Paging paging = 3;
+  repeated Organization data = 4;
+  common.v1.aliases.AliasesCommon aliases = 5;
+}

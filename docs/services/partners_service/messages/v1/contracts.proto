@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package docs.services.partners_service.messages.v1.contracts;
+
+import "google/protobuf/timestamp.proto";
+
+import "docs/services/partners_service/common/v1/paging.proto";
+import "docs/services/partners_service/common/v1/aliases.proto";
+
+message Contract {
+  string guid = 1;
+  string code = 2;
+  string name = 3;
+  string number = 4;
+  google.protobuf.Timestamp date = 5;
+  string interdocType = 6;
+  string typeOfContract = 7;
+  google.protobuf.Timestamp dateFrom = 8;
+  google.protobuf.Timestamp dateTo = 9;
+  string organizationGuid = 10;
+  repeated ContractParty partners = 11;
+  double amount = 12;
+  double amountVAT = 13;
+  string currency = 14;
+  string projectGuid = 15;
+  string gpGuid = 16;
+  bool signed = 17;
+  google.protobuf.Timestamp dateSigned = 18;
+  double interestRate = 19;
+  google.protobuf.Timestamp dateEndLoan = 20;
+  string externalLink = 21;
+  string amount_str = 22;
+  string amountVAT_str = 23;
+  bool isCancel = 24;
+  google.protobuf.Timestamp modificationDate = 25;
+  google.protobuf.Timestamp modificationDateUTC = 26;
+}
+
+message ContractParty {
+  string partnerGuid = 1;
+  string role = 2;
+  string personGuid = 3;
+  string personName = 4;
+  string signerGuid = 5;
+  string signerName = 6;
+}
+
+message ContractsResponse {
+  bool success = 1;
+  int32 code = 2;
+  partners_service.common.v1.paging.Paging paging = 3;
+  repeated Contract data = 4;
+  common.v1.aliases.AliasesCommon aliases = 5;
+}

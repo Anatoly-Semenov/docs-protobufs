@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package docs.services.partners_service.common.v1.aliases;
+
+message AliasesCommon {
+  map<string, AliasGuid> currency = 1;
+  map<string, AliasGuid> partner = 2;
+  map<string, AliasGuid> person = 3;
+}
+
+message AliasGuid {
+  repeated string ac_dogovory = 1;
+  repeated string portal_partnerov = 2;
+}

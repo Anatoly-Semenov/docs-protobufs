@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package docs.services.partners_service.messages.v1.arguments;
+
+message GetBasicArguments {
+    string date = 1;
+    string sort = 2;
+    optional int32 page = 3;
+    int32 quantity = 4;
+    bool show_aliases = 5;
+    Filter filter = 6;
+    int32 qt = 7;
+}
+
+message Filter {
+    Include include = 1;
+    Exclude exclude = 2;
+}
+
+message Include {
+    repeated string code = 1;
+    repeated string guid = 2;
+}
+message Exclude {
+    repeated string code = 1;
+    repeated string guid = 2;
+}

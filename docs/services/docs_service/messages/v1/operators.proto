@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package docs.services.docs_service.messages.v1.operators;
+import "docs/common/messages/v1/api_response.proto";
+
+message Operators {
+   repeated Counterparties counterparties = 1;
+   string message = 2;
+   int32 code = 3;
+}
+
+message Counterparties {
+    string counterparty_id = 1;
+    string box_id = 2;
+    string operator = 3;
+    string counterparty = 4;
+}

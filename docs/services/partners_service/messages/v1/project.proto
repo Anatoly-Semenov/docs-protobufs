@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package docs.services.partners_service.messages.v1.project;
+
+import "google/protobuf/timestamp.proto";
+
+import "docs/services/partners_service/common/v1/paging.proto";
+import "docs/services/partners_service/common/v1/aliases.proto";
+
+message Project {
+  string guid = 1;
+  string code = 2;
+  string cityGuid = 3;
+  string type = 4;
+  string name = 5;
+  string fullName = 6;
+  string docCode = 7;
+  bool isCompleted = 8;
+  bool isCancel = 9;
+  google.protobuf.Timestamp modificationDate = 10;
+  google.protobuf.Timestamp modificationDateUTC = 11;
+}
+
+message ProjectResponse {
+  bool success = 1;
+  int32 code = 2;
+  partners_service.common.v1.paging.Paging paging = 3;
+  repeated Project data = 4;
+  common.v1.aliases.AliasesCommon aliases = 5;
+}

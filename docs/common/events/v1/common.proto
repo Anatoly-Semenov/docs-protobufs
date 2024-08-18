@@ -1,0 +1,10 @@
+syntax = "proto3";
+import "google/protobuf/timestamp.proto";
+
+package docs.common.events.v1.common;
+
+message EventTraceData {
+    google.protobuf.Timestamp timestamp = 1;
+    string trace_id = 2;
+    string service_name = 3;
+}

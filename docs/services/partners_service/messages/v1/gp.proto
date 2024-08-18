@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package docs.services.partners_service.messages.v1.gp;
+
+import "google/protobuf/timestamp.proto";
+
+import "docs/services/partners_service/common/v1/paging.proto";
+import "docs/services/partners_service/common/v1/aliases.proto";
+
+message Gp {
+  string guid = 1;
+  string code = 2;
+  string projectGuid = 3;
+  string cityGuid = 4;
+  string type = 5;
+  string name = 6;
+  string fullName = 7;
+  string docCode = 8;
+  int32 sectionCount = 9;
+  string floors = 10;
+  repeated SectionDetail sectionDetails = 11;
+  bool isCompleted = 12;
+  bool isCancel = 13;
+  google.protobuf.Timestamp modificationDate = 14;
+  google.protobuf.Timestamp modificationDateUTC = 15;
+}
+
+message SectionDetail {
+  string sectionDescription = 1;
+  string sectionFloorCount = 2;
+}
+
+message GpResponse {
+  bool success = 1;
+  int32 code = 2;
+  partners_service.common.v1.paging.Paging paging = 3;
+  repeated Gp data = 4;
+  common.v1.aliases.AliasesCommon aliases = 5;
+}

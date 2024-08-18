@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package docs.services.partners_service.messages.v1.units;
+
+import "google/protobuf/timestamp.proto";
+
+import "docs/services/partners_service/common/v1/paging.proto";
+import "docs/services/partners_service/common/v1/aliases.proto";
+
+message Unit {
+  string guid = 1;
+  string code = 2;
+  string name = 3;
+  string fullName = 4;
+  string intAbb = 5;
+  bool isCancel = 6;
+  google.protobuf.Timestamp modificationDate = 7;
+  google.protobuf.Timestamp modificationDateUTC = 8;
+}
+
+message UnitsResponse {
+  bool success = 1;
+  int32 code = 2;
+  partners_service.common.v1.paging.Paging paging = 3;
+  repeated Unit data = 4;
+  common.v1.aliases.AliasesCommon aliases = 5;
+}
