@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package docs.services.partners_service.messages.v1.nomenclature;
+
+import "google/protobuf/timestamp.proto";
+
+import "docs/services/partners_service/common/v1/paging.proto";
+import "docs/services/partners_service/common/v1/aliases.proto";
+
+message Nomenclature {
+  string guid = 1;
+  string code = 2;
+  bool isGroup = 3;
+  string parentGuid = 4;
+  string name = 5;
+  string unitGuid = 6;
+  string unitName = 7;
+  string type = 8;
+  string job = 9;
+  bool isCancel = 10;
+  google.protobuf.Timestamp modificationDate = 11;
+  google.protobuf.Timestamp modificationDateUTC = 12;
+}
+
+message NomenclatureResponse {
+  bool success = 1;
+  int32 code = 2;
+  partners_service.common.v1.paging.Paging paging = 3;
+  repeated Nomenclature data = 4;
+  common.v1.aliases.AliasesCommon aliases = 5;
+}

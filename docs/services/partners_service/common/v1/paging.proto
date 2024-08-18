@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package docs.services.partners_service.common.v1.paging;
+
+message Paging {
+  int32 page = 1;
+  int32 pages = 2;
+  int32 amount = 3;
+  int32 total = 4;
+}

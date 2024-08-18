@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package docs.services.partners_service;
+
+import "docs/services/partners_service/messages/v1/arguments.proto";
+import "docs/services/partners_service/messages/v1/units.proto";
+import "docs/services/partners_service/messages/v1/persons.proto";
+import "docs/services/partners_service/messages/v1/organization.proto";
+import "docs/services/partners_service/messages/v1/partners.proto";
+import "docs/services/partners_service/messages/v1/project.proto";
+import "docs/services/partners_service/messages/v1/cities.proto";
+import "docs/services/partners_service/messages/v1/gp.proto";
+import "docs/services/partners_service/messages/v1/nomenclature.proto";
+import "docs/services/partners_service/messages/v1/contracts.proto";
+import "docs/services/partners_service/messages/v1/jobs.proto";
+
+service PartnersService {
+  rpc ListUnitsV1 (messages.v1.arguments.GetBasicArguments) returns (messages.v1.units.UnitsResponse);
+
+  rpc ListPersonsV1 (messages.v1.arguments.GetBasicArguments) returns (messages.v1.persons.PersonsResponse);
+
+  rpc ListOrganizationV1 (messages.v1.arguments.GetBasicArguments) returns (messages.v1.organization.OrganizationResponse);
+
+  rpc ListPartnersV1 (messages.v1.arguments.GetBasicArguments) returns (messages.v1.partners.PartnerResponse);
+
+  rpc ListProjectV1 (messages.v1.arguments.GetBasicArguments) returns (messages.v1.project.ProjectResponse);
+
+  rpc ListCitiesV1 (messages.v1.arguments.GetBasicArguments) returns (messages.v1.cities.CityResponse);
+
+  rpc ListGpV1 (messages.v1.arguments.GetBasicArguments) returns (messages.v1.gp.GpResponse);
+
+  rpc ListNomenclatureV1 (messages.v1.arguments.GetBasicArguments) returns (messages.v1.nomenclature.NomenclatureResponse);
+
+  rpc ListContractsV1 (messages.v1.arguments.GetBasicArguments) returns (messages.v1.contracts.ContractsResponse);
+
+  rpc ListJobsV1 (messages.v1.arguments.GetBasicArguments) returns (messages.v1.jobs.JobResponse);
+
+}

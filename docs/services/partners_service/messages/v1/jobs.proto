@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package docs.services.partners_service.messages.v1.jobs;
+
+import "google/protobuf/timestamp.proto";
+
+import "docs/services/partners_service/common/v1/paging.proto";
+import "docs/services/partners_service/common/v1/aliases.proto";
+
+message Job {
+  string guid = 1;
+  string code = 2;
+  string parentGuid = 3;
+  int32 level = 4;
+  string name = 5;
+  string unitGuid = 6;
+  bool isGroup = 7;
+  bool isCancel = 8;
+  google.protobuf.Timestamp modificationDate = 9;
+  google.protobuf.Timestamp modificationDateUTC = 10;
+}
+
+message JobResponse {
+  bool success = 1;
+  int32 code = 2;
+  partners_service.common.v1.paging.Paging paging = 3;
+  repeated Job data = 4;
+  common.v1.aliases.AliasesCommon aliases = 5;
+}

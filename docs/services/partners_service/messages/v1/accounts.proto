@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package docs.services.partners_service.messages.v1.accounts;
+
+import "google/protobuf/timestamp.proto";
+
+message Account {
+  string guid = 1;
+  string code = 2;
+  string name = 3;
+  string bank = 4;
+  string bankCode = 5;
+  string accNumber = 6;
+  string currency = 7;
+  string curCode = 8;
+  string type = 9;
+  string using = 10;
+  string openingDate = 11;
+  string closingDate = 12;
+  bool isCancel = 13;
+  google.protobuf.Timestamp modificationDate = 14;
+  google.protobuf.Timestamp modificationDateUTC = 15;
+}
